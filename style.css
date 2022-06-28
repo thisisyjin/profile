@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background-color: #222;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.title {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title h1 {
+  font-size: 180px;
+  font-weight: 900;
+  background-image: url(https://images.unsplash.com/photo-1577369311736-3fdfe579a765?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+  background-position: center center;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  z-index: 5;
+  padding-top: 35px;
+}
+
+.middle {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background-color: #0043c6;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+
+.middle-desc {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff80;
+  font-weight: 300;
+}
+
+.middle:hover {
+  animation-name: popping;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.middle:hover .middle-desc {
+  color: #fff;
+}
+
+.middle-link,
+.left,
+.right {
+  position: absolute;
+  width: 0;
+  height: 0;
+  background-color: #0256fb;
+  border-radius: 50%;
+}
+
+.middle-link {
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+.left {
+  left: 10%;
+  top: 10%;
+  transition: 0.3s;
+}
+.right {
+  right: 10%;
+  top: 10%;
+  transition: 0.3s;
+}
+
+.middle-link:hover {
+  background-image: url(https://images.unsplash.com/photo-1470790376778-a9fbc86d70e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=704&q=80);
+  background-position: center center;
+  background-size: cover;
+}
+.left:hover {
+  background-image: url(https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1490&q=80);
+  background-position: -10px center;
+  background-size: cover;
+}
+.right:hover {
+  background-image: url(https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=696&q=80);
+  background-position: center center;
+  background-size: cover;
+}
+
+.left:hover.left::after {
+  font-family: 'Noto Sans', sans-serif;
+  content: 'portfolio';
+  text-decoration: none;
+  font-weight: 300;
+  color: #fff;
+  font-size: 26px;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+}
+.middle-link:hover.middle-link::after {
+  font-family: 'Noto Sans', sans-serif;
+  content: 'blog';
+  text-decoration: none;
+  font-weight: 300;
+  color: #fff;
+  font-size: 26px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.right:hover.right::after {
+  font-family: 'Noto Sans', sans-serif;
+  content: 'github';
+  text-decoration: none;
+  font-weight: 300;
+  color: #fff;
+  font-size: 26px;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+}
+
+/* Animations */
+
+@keyframes popping {
+  0% {
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+  33% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  66% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes smaller {
+  0% {
+    width: 400px;
+    height: 400px;
+    color: #fff;
+  }
+  60% {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+  }
+
+  100% {
+    display: none;
+  }
+}
+
+@keyframes bigger {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* animated */
+
+.middle.animated {
+  animation-name: smaller;
+  animation-duration: 3s;
+  width: 0;
+  height: 0;
+  top: 10%;
+}
+.middle.animated .middle-desc {
+  color: transparent;
+}
+.left.animated {
+  animation-name: bigger;
+  animation-duration: 3s;
+  width: 200px;
+  height: 200px;
+}
+.right.animated {
+  animation-name: bigger;
+  animation-duration: 2.5s;
+  width: 200px;
+  height: 200px;
+}
+.middle-link.animated {
+  animation-name: bigger;
+  animation-duration: 3.35s;
+  animation-timing-function: cubic-bezier(1, -0.01, 0.81, 0.07);
+  width: 200px;
+  height: 200px;
+}
