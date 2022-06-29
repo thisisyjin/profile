@@ -8,6 +8,11 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.wrap {
+  height: 100%;
+  transform: scale(0.7);
+}
+
 .title {
   height: 100%;
   display: flex;
