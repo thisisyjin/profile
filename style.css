@@ -215,3 +215,29 @@ body {
   width: 200px;
   height: 200px;
 }
+
+/* Media */
+
+@media screen and (max-width: 600px) {
+  .title h1 {
+    font-size: 48px;
+  }
+  .middle {
+    display: none;
+  }
+  .left,
+  .middle-link,
+  .right {
+    width: 100px;
+    height: 100px;
+    top: 30%;
+  }
+  .left:hover.left::after,
+  .middle-link:hover.middle-link::after,
+  .right:hover.right::after {
+    font-size: 15px;
+  }
+  .middle-link {
+    top: 25%;
+  }
+}
